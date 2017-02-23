@@ -342,6 +342,14 @@ void top_UI()
         glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_score[i]);
         shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_score[i]);
     }
+    //EXIT	
+    shift = 0;
+    for (int i = 0; i < strlen(text_stop); ++i)
+    {
+        glRasterPos2i(445 + shift, 563);
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_stop[i]);
+        shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_stop[i]);
+    }
 }
 int main(int argc, char** argv)
 {
