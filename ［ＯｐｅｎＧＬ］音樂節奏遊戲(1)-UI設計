@@ -304,52 +304,93 @@ void buttom_UI()
 }
 void top_UI()
 {
-    int shift = 0;
-    char text_musicname[] = "MUSIC NAME: What Makes You Beautiful";
-    char text_score[] = "SCORE:";
-    char text_stop[] = "EXIT";
-    char s[30] = { 0 };
-    char c[30] = {0};
-    //頂部的視窗
-    //線條寬度:5
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glRecti(0, 580, 500, 650);
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glRecti(5, 585, 495, 645);
-    //頂部功能選單
-    //線條寬度:3
-    glColor3f(1.0f, 1.0f, 1.0f);//底色:白色
-    glRecti(422, 550, 500, 580);
-    glColor3f(0.0f, 0.0f, 0.0f);//兩個功能選框
-    glRecti(425, 553, 497, 580);
-    //------------------------------------------------------------------------------------------------
-    //|  頂部功能選單文字                                                                            |
-    //------------------------------------------------------------------------------------------------
-    glColor3f(1.0f, 1.0f, 1.0f);//白色
-                                //MUSIC NAME
-    shift = 0;
-    for (int i = 0; i < strlen(text_musicname); ++i)
-    {
-        glRasterPos2i(100 + shift, 610);
-        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_musicname[i]);
-        shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_musicname[i]);
-    }
-    //SCORE
-    shift = 0;
-    for (int i = 0; i < strlen(text_score); ++i)
-    {
-        glRasterPos2i(100 + shift, 590);
-        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_score[i]);
-        shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_score[i]);
-    }
-    //EXIT	
-    shift = 0;
-    for (int i = 0; i < strlen(text_stop); ++i)
-    {
-        glRasterPos2i(445 + shift, 563);
-        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_stop[i]);
-        shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_stop[i]);
-    }
+	int shift = 0;
+	char text_musicname[] = "MUSIC NAME: What Makes You Beautiful";
+	char text_score[] = "SCORE:";
+	char text_stop[] = "EXIT";
+	char s[30] = { 0 };
+	char c[30] = {0};
+	//頂部的視窗
+	//線條寬度:5
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glRecti(0, 580, 500, 650);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glRecti(5, 585, 495, 645);
+	//頂部功能選單
+	//線條寬度:3
+	glColor3f(1.0f, 1.0f, 1.0f);//底色:白色
+	glRecti(422, 550, 500, 580);
+	glColor3f(0.0f, 0.0f, 0.0f);//兩個功能選框
+	glRecti(425, 553, 497, 580);
+	//------------------------------------------------------------------------------------------------
+	//|  頂部功能選單文字                                                                            |
+	//------------------------------------------------------------------------------------------------
+	glColor3f(1.0f, 1.0f, 1.0f);//白色
+								//MUSIC NAME
+	shift = 0;
+	for (int i = 0; i < strlen(text_musicname); ++i)
+	{
+		glRasterPos2i(100 + shift, 610);
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_musicname[i]);
+		shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_musicname[i]);
+	}
+	//SCORE
+	shift = 0;
+	for (int i = 0; i < strlen(text_score); ++i)
+	{
+		glRasterPos2i(100 + shift, 590);
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_score[i]);
+		shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_score[i]);
+	}
+	//SCORE VARABLE
+	itoa(score, s, 10);
+	shift = 0;
+	glColor3f(1.0f, 0.90f, 0.0f);//黃色
+	for (int i = 0; i < strlen(s); ++i)
+	{
+		glRasterPos2i(160 + shift, 590);//結束座標(160,590)
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, s[i]);
+		shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, s[i]);
+	}
+
+	//COMBO VARABLE
+	itoa(combo, c, 10);
+	shift = 0;
+	if (combo != 0)
+	{
+		
+		if (combo <= 5)
+		{
+			glColor3f(1.0f, 0.90f, 0.0f);//黃色
+		}
+		else if (combo <= 10)
+		{
+			glColor3f(1.0f, 0.60f, 0.0f);//橘色
+		}
+		else if (combo <= 15)
+		{
+			glColor3f(1.0f, 0.0f, 0.0f);//紅
+		}
+		else if (combo <= 20)
+		{
+			glColor3f(1.0f, 0.0f, 1.0f);//紫
+		}
+		for (int i = 0; i < strlen(c); ++i)
+		{
+			glRasterPos2i(40 + shift, 530);//結束座標(160,590)
+			glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c[i]);
+			shift += glutBitmapWidth(GLUT_BITMAP_TIMES_ROMAN_24, c[i]);
+		}
+	}
+	glColor3f(1.0f, 1.0f, 1.0f);//白色
+	//EXIT	
+	shift = 0;
+	for (int i = 0; i < strlen(text_stop); ++i)
+	{
+		glRasterPos2i(445 + shift, 563);
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text_stop[i]);
+		shift += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text_stop[i]);
+	}
 }
 int main(int argc, char** argv)
 {
