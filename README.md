@@ -13,7 +13,7 @@ If you put down at the correct moment,you will get higher scores, but if you mis
 ![atavar](https://i.imgur.com/0A01s11.jpg)
 ![atavar](https://i.imgur.com/dYxu3ME.jpg)
 
-## Development Detail
+## Use Language & Packages
 - Visual Studio 2012
 - OpenGL
 
